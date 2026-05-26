@@ -57,7 +57,10 @@ export default function App() {
             password: "",
           }}
           onSubmit={(values, actions) => {
-            setLoginResult(values);
+            setLoginResult({
+              email: values.email,
+            });
+
             actions.resetForm();
           }}
         >
@@ -88,12 +91,12 @@ export default function App() {
         </Formik>
 
         {loginResult && (
-          <View style={styles.resultBox}>
-            <Text style={styles.resultTitle}>Login Submitted</Text>
-            <Text>Email: {loginResult.email}</Text>
-            <Text>Password: {loginResult.password}</Text>
-          </View>
-        )}
+        <View style={styles.resultBox}>
+          <Text style={styles.resultTitle}>Login Submitted</Text>
+          <Text>Email: {loginResult.email}</Text>
+          <Text>Password submitted securely and not displayed.</Text>
+        </View>
+)}
       </View>
 
       {/* =====================================================
